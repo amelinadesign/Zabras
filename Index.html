@@ -3,96 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Burger Point - Ingreso</title>
+    <title>Burger Point - Nuestro Menú</title>
     <style>
-        /* Fondo con colores cálidos que abren el apetito */
+        /* Estilos generales */
         body {
-            background-color: #ffecd2;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            background-color: #f9f9f9;
             margin: 0;
+            padding: 0;
+            color: #333;
         }
 
-        /* Contenedor del formulario */
-        .login-container {
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        /* Encabezado llamativo */
+        header {
+            background-color: #d32f2f; /* Rojo intenso */
+            color: white;
+            padding: 20px 0;
             text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            letter-spacing: 1px;
+        }
+
+        /* Contenedor principal de las hamburguesas */
+        .menu-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Tarjeta de cada hamburguesa */
+        .burger-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
             width: 320px;
-            border-top: 6px solid #ff4500; /* Naranja rojizo */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .login-container h2 {
-            color: #d32f2f; /* Rojo intenso */
-            margin-bottom: 5px;
+        /* Efecto al pasar el mouse */
+        .burger-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 20px rgba(0,0,0,0.15);
         }
 
-        .login-container p {
+        /* Espacio para la foto (usando URLs de prueba libres de derechos) */
+        .burger-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-bottom: 4px solid #ff9800; /* Detalle naranja */
+        }
+
+        /* Contenido de la tarjeta */
+        .card-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .card-info h3 {
+            margin: 0 0 10px 0;
+            color: #222;
+            font-size: 1.4em;
+        }
+
+        .card-info p {
             color: #666;
-            font-size: 14px;
-            margin-bottom: 20px;
+            font-size: 0.95em;
+            line-height: 1.4;
+            margin-bottom: 15px;
+            height: 60px; /* Mantiene las tarjetas alineadas */
         }
 
-        /* Estilos de los campos de texto */
-        input {
-            width: 100%;
-            padding: 12px;
-            margin: 8px 0;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            box-sizing: border-box;
-            font-size: 14px;
+        .price {
+            color: #d32f2f;
+            font-weight: bold;
+            font-size: 1.5em;
+            margin-bottom: 15px;
         }
 
-        input:focus {
-            border-color: #ff9800;
-            outline: none;
-        }
-
-        /* Botón llamativo */
-        button {
-            width: 100%;
-            padding: 14px;
-            background-color: #ff9800; /* Color pan de hamburguesa/cheddar */
+        /* Botón de compra */
+        .btn-comprar {
+            background-color: #ff9800;
             color: white;
             border: none;
+            padding: 12px 20px;
+            width: 100%;
             border-radius: 8px;
+            font-size: 1.1em;
             font-weight: bold;
-            font-size: 16px;
             cursor: pointer;
-            transition: background-color 0.3s, transform 0.1s;
-            margin-top: 15px;
+            transition: background-color 0.2s;
         }
 
-        button:hover {
+        .btn-comprar:hover {
             background-color: #e65100;
-        }
-
-        button:active {
-            transform: scale(0.98);
         }
     </style>
 </head>
 <body>
 
-    <div class="login-container">
-        <h2>🍔 ¡Pedí tu Burger!</h2>
-        <p>Completá tus datos para el envío</p>
-        
-        <form id="burgerLoginForm">
-            <input type="text" id="nombre" placeholder="Nombre" required>
-            <input type="text" id="apellido" placeholder="Apellido" required>
-            <input type="text" id="direccion" placeholder="Dirección de entrega" required>
-            <input type="password" id="password" placeholder="Contraseña" required>
-            
-            <button type="submit">Entrar y Ver Menú</button>
-        </form>
-    </div>
+    <header>
+        <h1>🍔 Burger Point</h1>
+        <p>Elegí la tuya, nosotros te la llevamos</p>
+    </header>
+
+    <main class="menu-grid">
+        <div class="burger-card">
+            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80" alt="Doble Cheddar">
+            <div class="card-info">
+                <h3>Doble Cheddar & Bacon</h3>
+                <p>Dos medallones de carne 100% vacuna, cuádruple cheddar derretido, panceta crocante y salsa de la casa.</p>
+                <div class="price">$5.500</div>
+                <button class="btn-comprar">Agregar al pedido</button>
+            </div>
+        </div>
+
+        <div class="burger-card">
+            <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=600&q=80" alt="Smash Onion">
+            <div class="card-info">
+                <h3>Smash Onion</h3>
+                <p>Doble carne smasheada con cebolla caramelizada, queso emmental y aderezo especial en pan de papa.</p>
+                <div class="price">$4.800</div>
+                <button class="btn-comprar">Agregar al pedido</button>
+            </div>
+        </div>
+
+        <div class="burger-card">
+            <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=600&q=80" alt="Crispy Chicken">
+            <div class="card-info">
+                <h3>Crispy Chicken</h3>
+                <p>Pechuga de pollo frita extra crocante, lechuga repollada, tomate fresco y mayonesa con un toque picante.</p>
+                <div class="price">$5.200</div>
+                <button class="btn-comprar">Agregar al pedido</button>
+            </div>
+        </div>
+    </main>
 
 </body>
 </html>
