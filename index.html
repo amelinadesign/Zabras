@@ -3,151 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Burger Point - Nuestro Menú</title>
+    <title>Burger Point - ¡Pecado Original!</title>
     <style>
-        /* Estilos generales */
+        /* Estilos base con colores que despiertan el hambre */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f9f9f9;
-            margin: 0;
-            padding: 0;
-            color: #333;
-        }
-
-        /* Encabezado llamativo */
-        header {
-            background-color: #d32f2f; /* Rojo intenso */
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 2.5em;
-            letter-spacing: 1px;
-        }
-
-        /* Contenedor principal de las hamburguesas */
-        .menu-grid {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            font-family: 'Arial Black', Gadget, sans-serif;
             display: flex;
-            flex-wrap: wrap;
             justify-content: center;
-            gap: 30px;
-            padding: 40px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: white;
         }
 
-        /* Tarjeta de cada hamburguesa */
-        .burger-card {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            width: 320px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        /* Efecto al pasar el mouse */
-        .burger-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 20px rgba(0,0,0,0.15);
-        }
-
-        /* Espacio para la foto (usando URLs de prueba libres de derechos) */
-        .burger-card img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            border-bottom: 4px solid #ff9800; /* Detalle naranja */
-        }
-
-        /* Contenido de la tarjeta */
-        .card-info {
-            padding: 20px;
+        .main-card {
+            background: rgba(255, 255, 255, 0.96);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            width: 380px;
             text-align: center;
+            border: 4px solid #ffcc00; /* Color queso fundido */
         }
 
-        .card-info h3 {
-            margin: 0 0 10px 0;
-            color: #222;
-            font-size: 1.4em;
-        }
-
-        .card-info p {
-            color: #666;
-            font-size: 0.95em;
-            line-height: 1.4;
-            margin-bottom: 15px;
-            height: 60px; /* Mantiene las tarjetas alineadas */
-        }
-
-        .price {
+        /* Texto de Bienvenida */
+        .welcome-section h1 {
             color: #d32f2f;
-            font-weight: bold;
-            font-size: 1.5em;
-            margin-bottom: 15px;
+            margin: 0;
+            font-size: 28px;
+            text-transform: uppercase;
         }
 
-        /* Botón de compra */
-        .btn-comprar {
+        .welcome-section p {
+            color: #333;
+            font-size: 16px;
+            font-weight: bold;
+            margin: 10px 0 20px 0;
+        }
+
+        /* Badge de oferta */
+        .promo-badge {
+            background-color: #d32f2f;
+            color: white;
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 12px;
+            margin-bottom: 20px;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* Formulario */
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        input:focus {
+            border-color: #ff9800;
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
             background-color: #ff9800;
             color: white;
             border: none;
-            padding: 12px 20px;
-            width: 100%;
-            border-radius: 8px;
-            font-size: 1.1em;
+            border-radius: 10px;
+            font-size: 18px;
             font-weight: bold;
             cursor: pointer;
-            transition: background-color 0.2s;
+            box-shadow: 0 4px #e65100;
+            transition: all 0.2s;
+            margin-top: 10px;
         }
 
-        .btn-comprar:hover {
-            background-color: #e65100;
+        button:active {
+            box-shadow: 0 0 #e65100;
+            transform: translateY(4px);
+        }
+
+        .footer-text {
+            color: #777;
+            font-size: 11px;
+            margin-top: 15px;
+            font-family: sans-serif;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>🍔 Burger Point</h1>
-        <p>Elegí la tuya, nosotros te la llevamos</p>
-    </header>
-
-    <main class="menu-grid">
-        <div class="burger-card">
-            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80" alt="Doble Cheddar">
-            <div class="card-info">
-                <h3>Doble Cheddar & Bacon</h3>
-                <p>Dos medallones de carne 100% vacuna, cuádruple cheddar derretido, panceta crocante y salsa de la casa.</p>
-                <div class="price">$5.500</div>
-                <button class="btn-comprar">Agregar al pedido</button>
-            </div>
+    <div class="main-card">
+        <div class="welcome-section">
+            <div class="promo-badge">🔥 ¡OFERTAS DE HOY DESDE $3.500! 🔥</div>
+            <h1>¡BIENVENIDO A BURGER POINT!</h1>
+            <p>Donde el sabor es gigante y el precio es chiquito. 🍔✨</p>
         </div>
 
-        <div class="burger-card">
-            <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=600&q=80" alt="Smash Onion">
-            <div class="card-info">
-                <h3>Smash Onion</h3>
-                <p>Doble carne smasheada con cebolla caramelizada, queso emmental y aderezo especial en pan de papa.</p>
-                <div class="price">$4.800</div>
-                <button class="btn-comprar">Agregar al pedido</button>
-            </div>
-        </div>
+        <form id="loginForm">
+            <input type="text" placeholder="Tu Nombre y Apellido" required>
+            <input type="text" placeholder="Dirección para el delivery" required>
+            <input type="password" placeholder="Elegí una contraseña" required>
+            
+            <button type="submit">¡QUIERO MI BURGER YA!</button>
+        </form>
 
-        <div class="burger-card">
-            <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=600&q=80" alt="Crispy Chicken">
-            <div class="card-info">
-                <h3>Crispy Chicken</h3>
-                <p>Pechuga de pollo frita extra crocante, lechuga repollada, tomate fresco y mayonesa con un toque picante.</p>
-                <div class="price">$5.200</div>
-                <button class="btn-comprar">Agregar al pedido</button>
-            </div>
-        </div>
-    </main>
+        <p class="footer-text">Las hamburguesas más baratas y ricas de la zona. Garantizado.</p>
+    </div>
 
 </body>
 </html>
